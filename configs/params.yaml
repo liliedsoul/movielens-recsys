@@ -1,0 +1,7 @@
+seed: 42
+dataset: ml-latest-small
+relevance_threshold: 4.0
+top_k: 10
+split:
+  val_date: null
+  test_date: null
