@@ -1,0 +1,6 @@
+outs:
+- md5: 7a07225112ccf8cdc73da1f2d56610d0.dir
+  size: 3303135
+  nfiles: 5
+  hash: md5
+  path: ml-latest-small
