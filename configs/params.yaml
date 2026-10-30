@@ -1,7 +1,7 @@
 seed: 42
-dataset: ml-latest-small
+dataset: ml-25m
 relevance_threshold: 4.0
 top_k: 10
 split:
-  val_date: null
-  test_date: null
+  val_date: "2016-06-25"
+  test_date: "2018-01-04"
