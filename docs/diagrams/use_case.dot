@@ -1,0 +1,28 @@
+// UML: диаграмма вариантов использования
+digraph G {
+  graph [rankdir=LR, fontname="DejaVu Sans", nodesep=0.22, ranksep=0.5, pad=0.2];
+  node  [fontname="DejaVu Sans", fontsize=10];
+  edge  [arrowhead=none, color="#555555"];
+  node [shape=plain];
+  analyst [label=<<table border="0" cellspacing="0"><tr><td fixedsize="true" width="30" height="50"><img src="actor.png" scale="true"/></td></tr><tr><td><b>Аналитик</b></td></tr></table>>];
+  viewer  [label=<<table border="0" cellspacing="0"><tr><td fixedsize="true" width="30" height="50"><img src="actor.png" scale="true"/></td></tr><tr><td><b>Зритель</b></td></tr></table>>];
+  mle     [label=<<table border="0" cellspacing="0"><tr><td fixedsize="true" width="30" height="50"><img src="actor.png" scale="true"/></td></tr><tr><td><b>ML-инженер</b></td></tr></table>>];
+  subgraph cluster_s {
+    label=<<b>Система рекомендаций фильмов</b>>; fontsize=11; style=solid; color="#555555";
+    node [shape=ellipse, style=filled, fillcolor="#F2F4F7", color="#555555", width=2.0, height=0.6, fixedsize=true, fontsize=9];
+    u1 [label="Получить\nрекомендации"];
+    u2 [label="Просмотреть\nKPI и динамику"];
+    u3 [label="Просмотреть отчёт\nо качестве порции"];
+    u4 [label="Загрузить\nновую порцию"];
+    u5 [label="Проверить\nкачество данных"];
+    u6 [label="Пересчитать\nпоказатели"];
+    u7 [label="Обучить и\nзарегистрировать модель"];
+    u8 [label="Сравнить\nверсии модели"];
+    {rank=same; u2; u3; u1}
+    {rank=same; u4; u5; u6; u7; u8}
+    edge [style=invis]; u2 -> u4; u3 -> u6; u1 -> u8;
+  }
+  edge [style=solid];
+  viewer -> u1; analyst -> u2; analyst -> u3;
+  u4 -> mle; u5 -> mle; u6 -> mle; u7 -> mle; u8 -> mle;
+}

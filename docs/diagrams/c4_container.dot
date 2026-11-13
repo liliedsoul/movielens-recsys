@@ -1,0 +1,37 @@
+// C4: уровень контейнеров
+digraph G {
+  graph [rankdir=TB, fontname="DejaVu Sans", nodesep=0.5, ranksep=0.55, pad=0.2, compound=true];
+  node  [shape=box, style="rounded,filled", fillcolor="#F2F4F7", color="#7A8699", penwidth=1.3, fontname="DejaVu Sans", fontsize=11, margin="0.2,0.1", width=2.3];
+  edge  [color="#7A8699", fontname="DejaVu Sans", fontsize=9, fontcolor="#555555", arrowsize=0.7];
+
+  user   [label=<<b>Зритель / аналитик</b><br/><font point-size="9">рекомендации, KPI</font><br/><font point-size="8" color="#777777">[Person]</font>>];
+  source [label=<<b>Сервис MovieLens</b><br/><font point-size="9">порции и каталог</font><br/><font point-size="8" color="#777777">[External System]</font>>];
+  {rank=same; user; source}
+
+  subgraph cluster_b {
+    label="Граница системы: рекомендации фильмов"; labelloc=b; fontsize=9; fontcolor="#777777";
+    style="dashed,rounded"; color="#9AA4B2";
+    panel  [label=<<b>Панель показателей</b><br/><font point-size="9">текущие значения и динамика</font><br/><font point-size="8" color="#777777">[Streamlit]</font>>];
+    batch  [label=<<b>Пакетная обработка</b><br/><font point-size="9">загрузка, DQ-проверки, признаки</font><br/><font point-size="8" color="#777777">[Python, pandas, pandera, DVC]</font>>];
+    api    [label=<<b>Backend API</b><br/><font point-size="9">рекомендации по запросу</font><br/><font point-size="8" color="#777777">[FastAPI]</font>>];
+    ml     [label=<<b>ML-модуль</b><br/><font point-size="9">обучение, top-10 рекомендаций</font><br/><font point-size="8" color="#777777">[scikit-learn, SciPy]</font>>];
+    store  [label=<<b>Хранилище данных</b><br/><font point-size="9">порции, признаки, параметры</font><br/><font point-size="8" color="#777777">[CSV / Parquet + DVC]</font>>, shape=cylinder, style="filled", margin="0.2,0.15"];
+    kpi    [label=<<b>Расчёт KPI</b><br/><font point-size="9">показатели по порции</font><br/><font point-size="8" color="#777777">[Python]</font>>];
+    reg    [label=<<b>Реестр моделей</b><br/><font point-size="9">эксперименты, версии</font><br/><font point-size="8" color="#777777">[MLflow]</font>>, shape=cylinder, style="filled", margin="0.2,0.15"];
+    kpidb  [label=<<b>БД показателей</b><br/><font point-size="9">история KPI</font><br/><font point-size="8" color="#777777">[SQLite]</font>>, shape=cylinder, style="filled", margin="0.2,0.15"];
+    {rank=same; panel; api; batch}
+    {rank=same; kpi; store}
+  }
+  user   -> panel [label="HTTP"];
+  user   -> api   [label="HTTP/JSON"];
+  source -> batch [label="batch_NN.csv"];
+  batch  -> store [label="валидные данные,\nотчёт качества"];
+  batch  -> ml    [label="признаки"];
+  ml     -> reg   [label="модель, метрики"];
+  reg    -> api   [label="текущая версия", constraint=false];
+  ml     -> kpi   [label="рекомендации"];
+  store  -> kpi   [label="оценки порции"];
+  kpi    -> kpidb [label="запись KPI"];
+  kpidb  -> panel [label="чтение", constraint=false];
+  store  -> api   [label="история, каталог", style=dashed, constraint=false];
+}

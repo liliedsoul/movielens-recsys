@@ -12,3 +12,7 @@ mlartifacts/
 
 # secrets
 .env
+
+# производные файлы пайплайна (воспроизводятся командой src.features.build)
+data/processed/*.csv
+data/processed/*.json

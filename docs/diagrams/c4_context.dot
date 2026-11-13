@@ -1,0 +1,20 @@
+// C4: уровень контекста
+digraph G {
+  graph [rankdir=TB, fontname="DejaVu Sans", nodesep=0.6, ranksep=0.7, pad=0.2];
+  node  [shape=box, style="rounded,filled", fillcolor="#F2F4F7", color="#7A8699", penwidth=1.3, fontname="DejaVu Sans", fontsize=11, margin="0.25,0.12"];
+  edge  [color="#7A8699", fontname="DejaVu Sans", fontsize=9, fontcolor="#555555", arrowsize=0.7];
+
+  viewer  [label=<<b>Зритель</b><br/><font point-size="9">получает рекомендации фильмов</font><br/><font point-size="8" color="#777777">[Person]</font>>];
+  analyst [label=<<b>Аналитик</b><br/><font point-size="9">просматривает показатели</font><br/><font point-size="8" color="#777777">[Person]</font>>];
+  source  [label=<<b>Сервис MovieLens</b><br/><font point-size="9">журнал оценок, каталог фильмов</font><br/><font point-size="8" color="#777777">[External Software System]</font>>];
+
+  sys     [label=<<b>Система рекомендаций фильмов</b><br/><font point-size="9">приём порций, контроль качества,<br/>рекомендации, ключевые показатели</font><br/><font point-size="8" color="#777777">[Software System]</font>>, fillcolor="#E4E9F0", fontsize=13, margin="0.4,0.2"];
+
+  mle     [label=<<b>ML-инженер</b><br/><font point-size="9">загрузка порций и контроль модели</font><br/><font point-size="8" color="#777777">[Person]</font>>];
+
+  {rank=same; viewer; analyst; source}
+  viewer  -> sys [label="запрос рекомендаций"];
+  analyst -> sys [label="просмотр KPI"];
+  source  -> sys [label="новые порции оценок"];
+  sys -> mle [label="загрузка порций, контроль качества и версий", dir=back];
+}

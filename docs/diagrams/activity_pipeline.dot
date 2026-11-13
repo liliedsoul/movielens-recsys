@@ -1,0 +1,40 @@
+// UML: диаграмма деятельности пайплайна
+digraph G {
+  graph [rankdir=TB, fontname="DejaVu Sans", nodesep=0.45, ranksep=0.32, pad=0.2];
+  node  [shape=box, style="rounded,filled", fillcolor="#F2F4F7", color="#555555", fontname="DejaVu Sans", fontsize=10, width=3.4, margin="0.15,0.08"];
+  edge  [color="#444444", fontname="DejaVu Sans", fontsize=9, arrowsize=0.7];
+  start [shape=circle, style=filled, fillcolor="#222222", label="", width=0.22, fixedsize=true];
+  a1 [label=<<b>Загрузить CSV-порцию</b><br/><font point-size="9">base_60.csv или batch_NN.csv, приведение типов</font>>];
+  a2 [label=<<b>Проверить схему и требования DQ-01…DQ-09</b>>];
+  d1 [shape=diamond, label="DQ?", width=0.8, height=0.55, fixedsize=true, fillcolor="white"];
+  x1 [label=<<b>Остановить порцию,</b><br/>записать отчёт FAILED>, width=2.2];
+  a3 [label=<<b>Очистить данные</b><br/><font point-size="9">исключить невалидные записи и повторы user–movie</font>>];
+  a4 [label=<<b>Присоединить каталог</b><br/><font point-size="9">жанры, год выпуска, imdbId</font>>];
+  d2 [shape=diamond, label="обучение?", width=1.1, height=0.6, fixedsize=true, fillcolor="white"];
+  t1 [label=<<b>Оценить параметры по train</b><br/><font point-size="9">средние, популярность, словарь жанров → artifacts/</font>>, fillcolor="#E4E9F0", width=2.9];
+  l1 [label=<<b>Загрузить сохранённые параметры</b><br/><font point-size="9">artifacts/params.json</font>>, width=2.6];
+  a5 [label=<<b>Сформировать признаки</b><br/><font point-size="9">по сохранённым параметрам</font>>];
+  d3 [shape=diamond, label="обучение?", width=1.1, height=0.6, fixedsize=true, fillcolor="white"];
+  t2 [label=<<b>Отфильтровать и обучить модель</b><br/><font point-size="9">≥ 5 оценок у фильма, ≥ 20 у пользователя; MLflow</font>>, fillcolor="#E4E9F0", width=2.9];
+  p1 [label=<<b>Получить top-10 и пересчитать KPI</b><br/><font point-size="9">запись в БД показателей</font>>, width=2.9];
+  a6 [label=<<b>Сохранить результаты и SHA-256</b>>];
+  end1 [shape=doublecircle, style=filled, fillcolor="#222222", label="", width=0.16, fixedsize=true];
+  end2 [shape=doublecircle, style=filled, fillcolor="#222222", label="", width=0.16, fixedsize=true];
+
+  start -> a1 -> a2 -> d1;
+  d1 -> a3 [label=" да"];
+  d1 -> x1 [label="нет"];
+  x1 -> end2;
+  a3 -> a4 -> d2;
+  d2 -> t1 [label="да"];
+  d2 -> l1 [label="нет"];
+  t1 -> a5; l1 -> a5;
+  a5 -> d3;
+  d3 -> t2 [label="да"];
+  d3 -> p1 [label="нет"];
+  t2 -> a6; p1 -> a6;
+  a6 -> end1;
+  {rank=same; d1; x1}
+  {rank=same; t1; l1}
+  {rank=same; t2; p1}
+}

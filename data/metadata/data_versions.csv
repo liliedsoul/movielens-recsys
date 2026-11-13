@@ -1,0 +1,7 @@
+file,role,rows,users,movies,period_start,period_end,sha256,source
+data/raw/ml-latest-small/ratings.csv,исходный набор (не изменяется),100836,610,9724,1996-03-29 18:36:55,2018-09-24 14:27:30,aa289ca83157595d0df6aea1be6a4ded676ddc4385472e8313a8ed9805352646,"GroupLens, ml-latest-small (DVC)"
+data/base/base_60.csv,исходная часть для EDA и обучения,60501,381,6233,1996-03-29 18:36:55,2009-11-17 01:21:40,acb9a5303ae8fc2936be9e04fbd821c34b5eea96a08d3d5e992e26c754a2db8f,data/raw/ml-latest-small/ratings.csv
+data/incoming/batch_01.csv,порция новых данных № 1,10084,96,3137,2009-11-17 01:21:52,2013-08-18 10:48:44,8c3fbdd70964eb6f72a79563a3ca6869a88580cf9747c0e0ff73a7e8c3426b96,data/raw/ml-latest-small/ratings.csv
+data/incoming/batch_02.csv,порция новых данных № 2,10083,84,2995,2013-08-18 10:49:29,2016-03-22 08:26:02,68ee9b0b2d37bd66589b159bdd3c329cdb775944ff7020912fe89e54737eaf1b,data/raw/ml-latest-small/ratings.csv
+data/incoming/batch_03.csv,порция новых данных № 3,10084,62,3261,2016-03-22 08:26:11,2017-06-21 07:17:25,052759ac6e2f8faf061fcd22ccd9506de4b9d90fa6c4ecd4d749c166c5cbf3af,data/raw/ml-latest-small/ratings.csv
+data/incoming/batch_04.csv,порция новых данных № 4,10084,74,4428,2017-06-21 07:17:30,2018-09-24 14:27:30,ce073e12f94bee1407d0d3f82608b67563bcec452c9eb40aa9a62a9fc54042b3,data/raw/ml-latest-small/ratings.csv

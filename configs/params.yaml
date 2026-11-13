@@ -5,3 +5,16 @@ top_k: 10
 split:
   val_date: "2016-06-25"
   test_date: "2018-01-04"
+# --- практические работы по ТИМО (рабочий набор ml-latest-small) ---
+batches:
+  dataset: ml-latest-small  # набор для практических работ, не зависит от dataset выше
+  base_share: 0.6           # доля исходной части (по времени)
+  n_batches: 4              # число порций «новых» данных
+  base_file: data/base/base_60.csv
+  incoming_dir: data/incoming
+  versions_file: data/metadata/data_versions.csv
+model:
+  test_share: 0.2           # отложенная тестовая часть (последние 20 % исходной части по времени)
+  cv_splits: 5              # TimeSeriesSplit на обучающей части
+  min_movie_ratings: 1      # фильтры обучающей выборки
+  version: v1

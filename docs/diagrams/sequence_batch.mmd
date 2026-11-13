@@ -1,0 +1,34 @@
+%% UML: диаграмма последовательности обработки новой порции
+sequenceDiagram
+    participant S as Источник
+    participant B as Пакетная обработка
+    participant Q as DQ-проверка
+    participant F as Признаки
+    participant M as ML-модуль
+    participant H as Хранилище
+    participant K as KPI
+    S->>B: batch_NN.csv
+    B->>Q: validate(batch)
+    activate Q
+    Q-->>B: отчёт о качестве
+    deactivate Q
+    alt нарушено блокирующее требование
+        B->>H: отчёт FAILED
+    else проверка пройдена
+        B->>H: валидные оценки
+        B->>F: build_features(batch)
+        activate F
+        F->>H: параметры из artifacts/
+        F-->>B: таблица признаков
+        deactivate F
+        B->>M: recommend(users, k=10)
+        activate M
+        M-->>B: top-10 рекомендаций
+        deactivate M
+        B->>K: compute(batch)
+        activate K
+        K->>H: рекомендации и оценки порции
+        K->>H: запись KPI
+        deactivate K
+    end
+    B-->>S: статус порции

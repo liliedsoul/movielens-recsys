@@ -1,0 +1,300 @@
+{
+  "structure": {
+    "rows": 60501,
+    "users": 381,
+    "movies_rated": 6233,
+    "catalog": 9742,
+    "tags_before_boundary": 1754,
+    "period": [
+      "1996-03-29 18:36:55",
+      "2009-11-17 01:21:40"
+    ],
+    "density_pct": 2.55
+  },
+  "target": {
+    "mean": 3.49,
+    "median": 3.5,
+    "share_integer_pct": 77.3,
+    "share_relevant_pct": 48.1,
+    "user_mean_range": [
+      2.34,
+      5.0
+    ],
+    "user_mean_iqr": [
+      3.34,
+      3.91
+    ]
+  },
+  "quality": {
+    "Пропуски в userId, movieId, rating, timestamp": 0,
+    "Полные дубликаты строк": 0,
+    "Повторные оценки пары userId–movieId": 0,
+    "Оценки вне 0,5–5,0 или не кратные 0,5": 0,
+    "movieId отсутствует в каталоге": 0,
+    "Оценка раньше года выпуска фильма": 0,
+    "Фильмы каталога без жанров": 34,
+    "Фильмы без года в названии": 13,
+    "Повторяющиеся названия фильмов": 10,
+    "Пропуски tmdbId": 8,
+    "Пары одноимённых фильмов с разными imdbId": 5
+  },
+  "activity": {
+    "user_median": 69.0,
+    "user_max": 2369,
+    "iqr_upper": 358,
+    "users_above_iqr": 42,
+    "share_ratings_above_iqr_pct": 49.6,
+    "max_per_minute": 64,
+    "movie_median": 3.0,
+    "movie_max": 201,
+    "movies_single_rating_pct": 27.5,
+    "top20_movies_share_pct": 71.6
+  },
+  "spearman": {
+    "user_n": {
+      "user_n": 1.0,
+      "movie_n": -0.37,
+      "movie_age": 0.15,
+      "year": 0.07,
+      "n_genres": -0.07,
+      "order_pct": 0.0,
+      "rating": -0.16
+    },
+    "movie_n": {
+      "user_n": -0.37,
+      "movie_n": 1.0,
+      "movie_age": -0.01,
+      "year": -0.09,
+      "n_genres": 0.27,
+      "order_pct": -0.24,
+      "rating": 0.19
+    },
+    "movie_age": {
+      "user_n": 0.15,
+      "movie_n": -0.01,
+      "movie_age": 1.0,
+      "year": -0.82,
+      "n_genres": -0.05,
+      "order_pct": -0.08,
+      "rating": 0.07
+    },
+    "year": {
+      "user_n": 0.07,
+      "movie_n": -0.09,
+      "movie_age": -0.82,
+      "year": 1.0,
+      "n_genres": 0.06,
+      "order_pct": 0.12,
+      "rating": -0.09
+    },
+    "n_genres": {
+      "user_n": -0.07,
+      "movie_n": 0.27,
+      "movie_age": -0.05,
+      "year": 0.06,
+      "n_genres": 1.0,
+      "order_pct": -0.06,
+      "rating": 0.03
+    },
+    "order_pct": {
+      "user_n": 0.0,
+      "movie_n": -0.24,
+      "movie_age": -0.08,
+      "year": 0.12,
+      "n_genres": -0.06,
+      "order_pct": 1.0,
+      "rating": -0.05
+    },
+    "rating": {
+      "user_n": -0.16,
+      "movie_n": 0.19,
+      "movie_age": 0.07,
+      "year": -0.09,
+      "n_genres": 0.03,
+      "order_pct": -0.05,
+      "rating": 1.0
+    }
+  },
+  "genres": {
+    "Horror": {
+      "n": 4389,
+      "mean": 3.202,
+      "rel": 0.388
+    },
+    "Children": {
+      "n": 5253,
+      "mean": 3.372,
+      "rel": 0.429
+    },
+    "Comedy": {
+      "n": 24034,
+      "mean": 3.379,
+      "rel": 0.437
+    },
+    "Action": {
+      "n": 17203,
+      "mean": 3.406,
+      "rel": 0.445
+    },
+    "Sci-Fi": {
+      "n": 9388,
+      "mean": 3.4,
+      "rel": 0.454
+    },
+    "Thriller": {
+      "n": 15973,
+      "mean": 3.459,
+      "rel": 0.462
+    },
+    "Fantasy": {
+      "n": 6265,
+      "mean": 3.475,
+      "rel": 0.466
+    },
+    "Adventure": {
+      "n": 13413,
+      "mean": 3.479,
+      "rel": 0.474
+    },
+    "Romance": {
+      "n": 11600,
+      "mean": 3.532,
+      "rel": 0.498
+    },
+    "Musical": {
+      "n": 2728,
+      "mean": 3.584,
+      "rel": 0.507
+    },
+    "Western": {
+      "n": 1340,
+      "mean": 3.549,
+      "rel": 0.509
+    },
+    "Animation": {
+      "n": 3300,
+      "mean": 3.626,
+      "rel": 0.527
+    },
+    "Crime": {
+      "n": 9761,
+      "mean": 3.622,
+      "rel": 0.528
+    },
+    "Mystery": {
+      "n": 4428,
+      "mean": 3.601,
+      "rel": 0.531
+    },
+    "IMAX": {
+      "n": 1006,
+      "mean": 3.691,
+      "rel": 0.538
+    },
+    "Drama": {
+      "n": 25525,
+      "mean": 3.652,
+      "rel": 0.549
+    },
+    "Documentary": {
+      "n": 648,
+      "mean": 3.787,
+      "rel": 0.6
+    },
+    "War": {
+      "n": 3007,
+      "mean": 3.834,
+      "rel": 0.627
+    },
+    "Film-Noir": {
+      "n": 592,
+      "mean": 3.965,
+      "rel": 0.699
+    }
+  },
+  "leakage_auc": {
+    "leaky": 0.781,
+    "honest": 0.692
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "rho": 0.219,
+      "p": 5.589371178377452e-30,
+      "n": 2624
+    },
+    {
+      "id": "H2",
+      "rho": -0.098,
+      "p": 0.055944055104229895,
+      "n": 381
+    },
+    {
+      "id": "H3",
+      "mean_old": 3.76,
+      "mean_new": 3.48,
+      "p": 5.497693932112249e-108,
+      "n_old": 10415,
+      "n_new": 15839
+    },
+    {
+      "id": "H4",
+      "H": 2284.7,
+      "p": 0.0,
+      "groups": 19
+    },
+    {
+      "id": "H5",
+      "mean_first": 3.6,
+      "mean_last": 3.6,
+      "p": 0.4892996623902992,
+      "n": 381
+    }
+  ],
+  "batches": [
+    {
+      "batch": "batch_01",
+      "rows": 10084,
+      "users": 96,
+      "new_users_pct": 75.0,
+      "new_movie_ratings_pct": 17.9,
+      "mean": 3.62,
+      "relevant_pct": 52.0,
+      "users_gt_500": 2,
+      "max_per_minute": 18
+    },
+    {
+      "batch": "batch_02",
+      "rows": 10083,
+      "users": 84,
+      "new_users_pct": 82.1,
+      "new_movie_ratings_pct": 16.4,
+      "mean": 3.53,
+      "relevant_pct": 48.5,
+      "users_gt_500": 3,
+      "max_per_minute": 18
+    },
+    {
+      "batch": "batch_03",
+      "rows": 10084,
+      "users": 62,
+      "new_users_pct": 66.1,
+      "new_movie_ratings_pct": 10.1,
+      "mean": 3.6,
+      "relevant_pct": 51.5,
+      "users_gt_500": 4,
+      "max_per_minute": 392
+    },
+    {
+      "batch": "batch_04",
+      "rows": 10084,
+      "users": 74,
+      "new_users_pct": 63.5,
+      "new_movie_ratings_pct": 14.8,
+      "mean": 3.34,
+      "relevant_pct": 40.9,
+      "users_gt_500": 3,
+      "max_per_minute": 39
+    }
+  ]
+}
