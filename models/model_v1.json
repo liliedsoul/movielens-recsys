@@ -1,6 +1,6 @@
 {
  "version": "v1",
- "trained": "2026-11-13 10:49",
+ "trained": "2026-11-13 11:10",
  "task": "P(rating >= 4.0) для пары пользователь–фильм; ранжирование top-10",
  "algorithm": "LogisticRegression(C=0.1, class_weight=None)",
  "selection_rule": "максимальный средний ROC-AUC; при разнице < 0,005 — более простая и быстрая модель",
@@ -54,12 +54,12 @@
   "user_activity_group_heavy"
  ],
  "seed": 42,
- "git_commit": "n/a",
+ "git_commit": "b2f73f5",
  "environment": {
-  "python": "3.13.16",
+  "python": "3.11.16",
   "scikit-learn": "1.9.1",
-  "pandas": "3.0.5",
-  "numpy": "2.5.3"
+  "pandas": "3.0.6",
+  "numpy": "2.4.6"
  },
  "usage": "joblib.load(...).predict_proba(df[['userId','movieId','timestamp']])[:, 1] после src.features.pipeline.clean"
 }
