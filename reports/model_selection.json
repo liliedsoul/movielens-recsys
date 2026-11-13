@@ -1,0 +1,26 @@
+{
+ "rule": "максимальный средний ROC-AUC; при разнице < 0,005 — более простая и быстрая модель",
+ "chosen": "logreg",
+ "algorithm": "LogisticRegression",
+ "params": {
+  "C": 0.1,
+  "class_weight": null
+ },
+ "cv_roc_auc_mean": 0.6851,
+ "cv_roc_auc_std": 0.0302,
+ "cv_pr_auc_mean": 0.6681,
+ "candidates": {
+  "logreg": {
+   "roc_auc": 0.6851,
+   "params": "{\"C\": 0.1, \"class_weight\": null}"
+  },
+  "hgb": {
+   "roc_auc": 0.6835,
+   "params": "{\"learning_rate\": 0.03, \"max_depth\": 3, \"max_iter\": 300, \"min_samples_leaf\": 20}"
+  },
+  "rf": {
+   "roc_auc": 0.6744,
+   "params": "{\"n_estimators\": 300, \"min_samples_leaf\": 5}"
+  }
+ }
+}

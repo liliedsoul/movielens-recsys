@@ -1,0 +1,32 @@
+[
+ {
+  "fold": 1,
+  "train": 8070,
+  "valid": 8066,
+  "new_users_share": 0.98
+ },
+ {
+  "fold": 2,
+  "train": 16136,
+  "valid": 8066,
+  "new_users_share": 0.853
+ },
+ {
+  "fold": 3,
+  "train": 24202,
+  "valid": 8066,
+  "new_users_share": 0.744
+ },
+ {
+  "fold": 4,
+  "train": 32268,
+  "valid": 8066,
+  "new_users_share": 0.744
+ },
+ {
+  "fold": 5,
+  "train": 40334,
+  "valid": 8066,
+  "new_users_share": 0.779
+ }
+]

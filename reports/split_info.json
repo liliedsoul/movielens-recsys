@@ -1,0 +1,16 @@
+{
+ "base_rows": 60501,
+ "train_rows": 48400,
+ "test_rows": 12101,
+ "train_period": [
+  "1996-03-29 18:36:55",
+  "2007-05-11 05:42:48"
+ ],
+ "test_period": [
+  "2007-05-11 07:08:42",
+  "2009-11-17 01:21:40"
+ ],
+ "train_positive_share": 0.496,
+ "test_positive_share": 0.4221,
+ "test_new_users_share_of_ratings": 0.7822
+}

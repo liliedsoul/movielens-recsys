@@ -1,0 +1,65 @@
+{
+ "version": "v1",
+ "trained": "2026-11-13 10:49",
+ "task": "P(rating >= 4.0) для пары пользователь–фильм; ранжирование top-10",
+ "algorithm": "LogisticRegression(C=0.1, class_weight=None)",
+ "selection_rule": "максимальный средний ROC-AUC; при разнице < 0,005 — более простая и быстрая модель",
+ "data": {
+  "file": "data/base/base_60.csv",
+  "sha256": "acb9a5303ae8fc2936be9e04fbd821c34b5eea96a08d3d5e992e26c754a2db8f",
+  "train_rows": 48400,
+  "train_period": [
+   "1996-03-29 18:36:55",
+   "2007-05-11 05:42:48"
+  ],
+  "split": "первые 80 % исходной части по времени"
+ },
+ "cv": {
+  "scheme": "TimeSeriesSplit(n_splits=5)",
+  "roc_auc_mean": 0.6851,
+  "roc_auc_std": 0.0302,
+  "pr_auc_mean": 0.6681
+ },
+ "features": [
+  "year",
+  "n_genres",
+  "movie_age",
+  "movie_pop_log",
+  "movie_bayes_mean",
+  "user_n_log",
+  "user_bias",
+  "user_genre_affinity",
+  "g_Action",
+  "g_Adventure",
+  "g_Animation",
+  "g_Children",
+  "g_Comedy",
+  "g_Crime",
+  "g_Documentary",
+  "g_Drama",
+  "g_Fantasy",
+  "g_Film-Noir",
+  "g_Horror",
+  "g_IMAX",
+  "g_Musical",
+  "g_Mystery",
+  "g_Romance",
+  "g_Sci-Fi",
+  "g_Thriller",
+  "g_War",
+  "g_Western",
+  "user_activity_group_new",
+  "user_activity_group_low",
+  "user_activity_group_active",
+  "user_activity_group_heavy"
+ ],
+ "seed": 42,
+ "git_commit": "n/a",
+ "environment": {
+  "python": "3.13.16",
+  "scikit-learn": "1.9.1",
+  "pandas": "3.0.5",
+  "numpy": "2.5.3"
+ },
+ "usage": "joblib.load(...).predict_proba(df[['userId','movieId','timestamp']])[:, 1] после src.features.pipeline.clean"
+}
