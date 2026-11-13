@@ -1,0 +1,3 @@
+# данные и модели не перекодируются (SHA-256 в data_versions.csv совпадают в Windows и Linux)
+data/** -text
+models/** -text
